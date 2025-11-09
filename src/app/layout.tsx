@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Stride - Premium Footwear Store",
+  description: "Shop the latest styles from top brands. Premium shoes, sneakers, and boots.",
 };
 
 export default function RootLayout({

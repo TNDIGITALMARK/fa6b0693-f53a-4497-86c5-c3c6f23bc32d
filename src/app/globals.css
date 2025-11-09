@@ -1,59 +1,115 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+============================================
+STRIDE E-COMMERCE DESIGN SYSTEM
+Extracted from design reference: ai-generated-preview.png
+Pixel-perfect replication specifications
+============================================
 */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* ===== STRIDE COLOR PALETTE (Exact Hex to HSL) ===== */
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* Primary Colors from Design Reference */
+  --color-brand-green: 160 84% 39%; /* #10B981 - Primary CTA buttons */
+  --color-dark-header: 0 0% 17%; /* #2B2B2B - Header/footer background */
+  --color-dark-footer: 213 16% 20%; /* #2D3748 - Footer sections */
 
-  /* Popovers with white background */
+  /* Text Colors */
+  --color-text-primary: 217 33% 17%; /* #1F2937 - Headlines */
+  --color-text-secondary: 215 16% 47%; /* #6B7280 - Descriptions */
+  --color-text-white: 0 0% 100%; /* #FFFFFF - White text */
+
+  /* Background Colors */
+  --color-bg-light: 0 0% 96%; /* #F5F5F5 - Hero/section backgrounds */
+  --color-bg-white: 0 0% 100%; /* #FFFFFF - Card backgrounds */
+
+  /* Border & Dividers */
+  --color-border-light: 220 13% 91%; /* #E5E7EB - Subtle borders */
+
+  /* ===== SHADCN THEME MAPPINGS ===== */
+
+  --background: 0 0% 100%; /* White background */
+  --foreground: 217 33% 17%; /* Dark text */
+
+  --card: 0 0% 100%; /* White cards */
+  --card-foreground: 217 33% 17%;
+
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  --popover-foreground: 217 33% 17%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
+  /* Primary: Brand Green */
+  --primary: 160 84% 39%; /* #10B981 */
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* Secondary: Light gray */
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 217 33% 17%;
 
-  /* Muted: Subtle gray with darker text */
+  /* Muted: Subtle backgrounds */
   --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  --muted-foreground: 215 16% 47%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Accent: Brand green for highlights */
+  --accent: 160 84% 39%;
+  --accent-foreground: 0 0% 100%;
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  /* Destructive: Error red */
+  --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Borders */
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 160 84% 39%;
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border Radius - Consistent with design */
+  --radius: 0.5rem; /* 8px for cards */
+  --radius-button: 0.375rem; /* 6px for buttons */
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  /* Sidebar */
+  --sidebar-background: 0 0% 17%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 160 84% 39%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-accent: 0 0% 20%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 0 0% 25%;
+  --sidebar-ring: 160 84% 39%;
+
+  /* ===== TYPOGRAPHY SCALE ===== */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font Sizes (matching design reference) */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* ===== SPACING SYSTEM ===== */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 0.75rem; /* 12px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+
+  /* ===== SHADOWS (from design reference) ===== */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-header: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -168,36 +224,175 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+/* ===== GLOBAL RESETS & BASE STYLES ===== */
+
+* {
+  box-sizing: border-box;
+  border-color: hsl(var(--border));
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
+/* ===== TYPOGRAPHY SYSTEM (Design Reference Matching) ===== */
+
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  margin: 0;
+  font-weight: 700;
   letter-spacing: -0.025em;
+  color: hsl(var(--color-text-primary));
+  line-height: var(--line-height-tight);
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 var(--spacing-md) 0;
+  color: hsl(var(--color-text-secondary));
+  line-height: var(--line-height-relaxed);
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--primary) / 0.8);
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+/* ===== BUTTON DEFAULTS (Brand Styling) ===== */
+
+button {
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== FORM ELEMENT DEFAULTS ===== */
+
+input, textarea, select {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-button);
+  padding: 0.5rem 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
+}
+
+label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
   color: hsl(var(--foreground));
 }
 
-/* Clean button styles */
-button {
-  font-weight: 500;
-}
+/* ===== UTILITY SHADOWS (Design Reference) ===== */
 
-/* Subtle shadows for depth */
 .shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.shadow-header {
+  box-shadow: var(--shadow-header);
+}
+
+/* ===== BRAND-SPECIFIC UTILITIES ===== */
+
+.brand-green {
+  color: hsl(var(--color-brand-green));
+}
+
+.bg-brand-green {
+  background-color: hsl(var(--color-brand-green));
+}
+
+.text-primary {
+  color: hsl(var(--color-text-primary));
+}
+
+.text-secondary {
+  color: hsl(var(--color-text-secondary));
+}
+
+.bg-light {
+  background-color: hsl(var(--color-bg-light));
+}
+
+.bg-dark-header {
+  background-color: hsl(var(--color-dark-header));
+}
+
+.bg-dark-footer {
+  background-color: hsl(var(--color-dark-footer));
 }
