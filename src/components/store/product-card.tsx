@@ -3,6 +3,8 @@
  * Matches design reference: White card with image, name, price, and green CTA button
  */
 
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/lib/products/types';
